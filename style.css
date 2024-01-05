@@ -1,0 +1,133 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/*
+Diese Eigenschaft legt die Perspektive für den 3D-Raum fest. In diesem Fall wird eine Perspektive von 2000 Pixeln angegeben. 
+Eine größere Pixelanzahl führt zu einer stärkeren 3D-Wirkung, die die Drehung realistischer erscheinen lässt.*/
+.ctn {
+    perspective: 2000px; 
+    width: 400px;
+    height: 550px;
+}
+
+/*Dieser Abschnitt wird aktiviert, wenn das Element mit der Klasse ctn gehovert wird. 
+Bei Hover wird die Klasse .card um 180 Grad um die Y-Achse gedreht. 
+Dies erzeugt den Effekt, dass die Karte sich um ihre eigene Y-Achse dreht.*/
+.ctn:hover .card {
+    transform: rotateY(180deg);  /* 180° horizontal drehen */
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    /*Es lässt die Drehung 3D anzeigen (die Drehung nicht flüssig)*/
+    transform-style: preserve-3d;
+    /*mit Übergang 1,5Sek die Drehung flüssiger zu machen*/
+    transition: transform 1500ms;
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 11px;
+    /*für beide Seiten bei 180° Drehung - immer die Rückseite ausblenden*/
+    backface-visibility: hidden;
+}
+
+.front {
+    background-image: url(ninja-groß.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.back {
+    background-color: black;
+    padding: 12px;
+    /* 180° horizontal drehen - die Drehung bei Y-Achsel*/
+    transform: rotateY(180deg);
+}
+
+.circle-img-ctn {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.circle-img {
+    /*Zu Inline-Block-Element umgewandelt, um image-Element zentriert zu können*/
+    display: inline-block;
+    background-image: url(ninja-klein.png);
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid #eee;
+}
+
+h1 {
+    color: #eee;
+    margin-top: 12px;
+}
+
+h2 {
+    color: #eee;
+}
+
+.line-ctn {
+    width: 90%;
+    margin: 25px;
+}
+
+.line-ctn span {
+    /*Zu Inline-Block-Element umgewandelt, um Breite und Höhe festzulegen*/
+    display: inline-block;
+    height: 15px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 2px;
+    position: relative;
+}
+
+.line-ctn span div {
+    position: absolute;
+    height: 100%;
+    background-color: red;
+}
+
+.fill-el-1 {
+    width: 85%;
+}
+
+.fill-el-2 {
+    width: 75%;
+}
+
+.fill-el-3 {
+    width: 65%;
+}
+
+.fill-el-3 {
+    width: 80%;
+}
+
+.fill-el-4 {
+    width: 60%;
+}
+
+.fill-el-5 {
+    width: 65%;
+}
